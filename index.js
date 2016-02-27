@@ -1,5 +1,5 @@
 /**
- * asyncArrayIterator a simple asyncronous loop which can simplify processing arrays before assigning final arguments
+ * asyncArrayIterator a simple asyncronous iterator which can simplify processing arrays before assigning final arguments
  * 
  */
 

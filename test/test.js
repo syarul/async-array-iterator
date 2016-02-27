@@ -1,4 +1,4 @@
-var asyncLoop = require('../')
+var asyncArrayIterator = require('../')
 
 var arrData = [1, 2, 3];
 
@@ -13,7 +13,7 @@ function finalExec(res){
 	console.log(res)
 }
 
-asyncLoop(arrData, iterateArray, finalExec)
+asyncArrayIterator(arrData, iterateArray, finalExec)
 
 
 

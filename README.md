@@ -1,5 +1,5 @@
 # asyncArrayIterator
-A simple asynchronous loop which can simplify processing arrays before assigning final arguments. for..loop is not that bad but in some cases you might want to resort to unconventional methods to process arrays, more than often it can lessen errors and leaks, and the best at cleaning up your code.
+A simple asynchronous iterator which can simplify processing arrays before assigning final arguments. for..loop is not that bad but in some cases you might want to resort to unconventional methods to process arrays, more than often it can lessen errors and leaks, and the best at cleaning up your code.
 
 ## installation
 

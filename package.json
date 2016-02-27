@@ -1,7 +1,7 @@
 {
   "name": "async-array-iterator",
   "version": "1.0.0",
-  "description": "a simple asyncronous loop which can simplify processing arrays before assigning final arguments",
+  "description": "a simple asyncronous iterator which can simplify processing arrays before assigning final arguments",
   "main": "index.js",
   "scripts": {
     "test1": "node test/test.js",

@@ -1,5 +1,5 @@
 # asyncArrayIterator
-A simple asynchronous iterator which can simplify processing arrays before assigning final arguments. for..loop is not that bad but in some cases you might want to resort to unconventional methods to process arrays, more than often it can lessen errors and leaks, and the best at cleaning up your code.
+```for..loop``` is not that bad but in some cases you might want to resort to unconventional methods to process arrays, more than often it can lessen errors and leaks, and the best at cleaning up your code.
 
 ## installation
 
@@ -27,15 +27,17 @@ asyncArrayIterator(arrData, iterateArray, finalExec)  // [ '1add', '2add', '3add
 ```
 ## Options Parameter
 ```javascript
-asyncArrayIterator(array, callback, exec, options)
+asyncArrayIterator(array, iterator, exec, options)
 ```
 - **array**: *(object)* array being process
-- **callback**: *(function)* the function for iterating each array value, argumented with the array, index and callback method after iterating each array object
+- **iterator**: *(function)* function for iterating arrays, argumented with 'array', 'index' and pass a 'callback' method
 - **exec**: *(function)* final function executed after all iterating is done
-- **options**: *(object, optional)* you can pass attributes if your array object has properties assigned
+- **options**: *(object, optional)* you can pass attributes parameter if your arrays objects inherit prototype values.
 
 ## usage with options
 ```javascript
+var asyncArrayIterator = require('async-array-iterator')
+
 var arrData = [
     {name: 'john', age: 24},
     {name: 'sarah', age: 5},

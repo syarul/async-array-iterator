@@ -1,0 +1,30 @@
+{
+  "name": "async-array-iterator",
+  "version": "1.0.0",
+  "description": "a simple asyncronous loop which can simplify processing arrays before assigning final arguments",
+  "main": "index.js",
+  "scripts": {
+    "test1": "node test/test.js",
+    "test2": "node test/test2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syarul/async-array-iterator.git"
+  },
+  "keywords": [
+    "async",
+    "loop",
+    "iterator",
+    "forloop",
+    "array",
+    "simple"
+  ],
+  "author": "Shahrul Nizam Selamat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/syarul/async-array-iterator/issues"
+  },
+  "homepage": "https://github.com/syarul/async-array-iterator#readme",
+  "dependencies": {
+  }
+}

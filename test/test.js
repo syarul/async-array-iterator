@@ -1,19 +1,19 @@
-var asyncArrayIterator = require('../')
+var aai = require('../')
 
 var arrData = [1, 2, 3];
 
-function iterateArray(array, index, callback){
+function iter(array, index, callback){
 	
 	var newVal = array[index] + 'add'
 
 	callback(newVal)
 }
 
-function finalExec(res){
+function exec(res){
 	console.log(res)
 }
 
-asyncArrayIterator(arrData, iterateArray, finalExec)
+aai(arrData, iter, exec)
 
 
 

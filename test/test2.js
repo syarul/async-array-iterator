@@ -1,4 +1,4 @@
-var asyncArrayIterator = require('../')
+var aai = require('../')
 
 var arrData = [
 	{name: 'john', age: 24},
@@ -6,19 +6,19 @@ var arrData = [
 	{name: 'mickey', age: 13}
 ];
 
-function iterateArray(array, index, callback){
+function iter(array, index, cb){
 	
 	var newName = array[index].name + ' travolta'
 	var newAge = array[index].age + 0.5
 	var data = [newName, newAge]
-	callback(data)
+	cb(data)
 }
 
-function finalExec(res){
+function exec(res){
 	console.log(res)
 }
 
-asyncArrayIterator(arrData, iterateArray, finalExec, {
+aai(arrData, iter, exec, {
 	attributes: [ 'name', 'age']
 })
 

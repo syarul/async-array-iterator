@@ -1,11 +1,12 @@
 {
   "name": "async-array-iterator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple asyncronous iterator which can simplify processing arrays before assigning final arguments",
   "main": "index.js",
   "scripts": {
     "test1": "node test/test.js",
-    "test2": "node test/test2.js"
+    "test2": "node test/test2.js",
+    "test3": "node test/test3.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,5 @@
     "url": "https://github.com/syarul/async-array-iterator/issues"
   },
   "homepage": "https://github.com/syarul/async-array-iterator#readme",
-  "dependencies": {
-  }
+  "dependencies": {}
 }

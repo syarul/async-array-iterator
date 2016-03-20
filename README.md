@@ -1,5 +1,5 @@
 # asyncArrayIterator
-```for..loop``` is not that bad but in some cases you might want to resort to unconventional methods to process arrays, more than often it can lessen errors and leaks, and the best at cleaning up your code.
+A replacement for for..loop statement and clean up your code from such + passing asynchronous result from the iteration. Usually we pass a statement inside the loop. It might be ok for small operation and start to become clunky when the array contains value which inherits lots of prototypes with method. Since for loop is synchronous, it's bad implementation for server side Node.js when you need to process async function inside it. asyncArrayIterator iterator pass a callback during iteration which will wait for all async function completion before moving to next iteration. 
 
 ## installation
 
@@ -8,35 +8,35 @@
 ## usage
 
 ```javascript
-var asyncArrayIterator = require('async-array-iterator')
+var aai = require('async-array-iterator')
 
 var arrData = [1, 2, 3];
 
-function iterateArray(array, index, callback){
-    
-    var newVal = array[index] + 'add'
+function iterator(array, index, cb){
+  
+  var newVal = array[index] + 'add'
 
-    callback(newVal)
+  cb(newVal)
 }
 
-function finalExec(res){
-    console.log(res)
+function exec(res){
+  console.log(res)
 }
 
-asyncArrayIterator(arrData, iterateArray, finalExec)  // [ '1add', '2add', '3add' ]
+aai(arrData, iterator, exec) // [ '1add', '2add', '3add' ]
 ```
 ## Options Parameter
 ```javascript
 asyncArrayIterator(array, iterator, exec, options)
 ```
 - **array**: *(object)* array being process
-- **iterator**: *(function)* function for iterating arrays, argumented with 'array', 'index' and pass a 'callback' method
+- **iterator**: *(function)* function for iterating arrays, augmented with 'array', 'index' and pass a 'callback' method
 - **exec**: *(function)* final function executed after all iterating is done
 - **options**: *(object, optional)* you can pass attributes parameter if your arrays objects inherit prototype values.
 
 ## usage with options
 ```javascript
-var asyncArrayIterator = require('async-array-iterator')
+var aai = require('async-array-iterator')
 
 var arrData = [
     {name: 'john', age: 24},
@@ -44,20 +44,57 @@ var arrData = [
     {name: 'mickey', age: 13}
 ];
 
-function iterateArray(array, index, callback){
+function iterator(array, index, cb){
     
     var newName = array[index].name + ' travolta'
     var newAge = array[index].age + 0.5
     var data = [newName, newAge]
-    callback(data)
+    cb(data)
 }
 
-function finalExec(res){
+function exec(res){
     console.log(res)
 }
 
-asyncArrayIterator(arrData, iterateArray, finalExec, {
+aai(arrData, iterator, exec, {
     attributes: [ 'name', 'age']
-}) // [ { name: 'john travolta', age: 24.5 }, { name: 'sarah travolta', age: 5.5 }, { name: 'mickey travolta', age: 13.5 } ] 
+}) // [ { name: 'john travolta', age: 24.5 }, 
+   //   { name: 'sarah travolta', age: 5.5 }, 
+   //   { name: 'mickey travolta', age: 13.5 } ] 
 
+```
+
+## sample with using call()
+```javascript
+var aai = require('async-array-iterator')
+
+var getName = {
+    first: null,
+    last: null,
+    fullname: function() {
+        return this.first + ' ' + this.last
+    }
+}
+
+var arrData = [{
+    first: 'John',
+    last: 'Ados'
+}, {
+    first: 'Sarah',
+    last: 'Gabon'
+}, {
+    first: 'Mickey',
+    last: 'Mouse'
+}];
+
+function iter(array, index, cb) {
+    var fullname = getName.fullname.call(array[index])
+    cb(fullname)
+}
+
+function exec(res) {
+    console.log(res)
+}
+
+aai(arrData, iter, exec) // [ 'John Ados', 'Sarah Gabon', 'Mickey Mouse' ]
 ```

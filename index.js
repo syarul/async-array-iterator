@@ -14,7 +14,12 @@ function asyncArrayIterator(array, callback, exec, options) {
   options = options || {};
 
   function cellOperation(result) {
-    if ( options.attributes !== undefined && options.attributes.length !== 0) {
+    if ( options.attributes) {
+
+      if ( typeof options.attributes !== 'object' || options.attributes.length === 0) {
+          throw new Error('Valid parameter have to be provided')
+      }
+
       options.attributes.forEach(function(element, index, array) {
         cell[element] = result[index]
       })

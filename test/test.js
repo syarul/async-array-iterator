@@ -1,5 +1,7 @@
 var aai = require('../')
 
+console.log('running test suite 1... \n')
+
 var arrData = [1, 2, 3];
 
 function iter(array, index, callback){

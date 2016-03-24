@@ -1,5 +1,5 @@
 # asyncArrayIterator
-A replacement for for..loop statement and clean up your code from such + passing asynchronous result from the iteration. Usually we pass a statement inside the loop. It might be ok for small operation and start to become clunky when the array contains value which inherits lots of prototypes with method. Since for loop is synchronous, it's bad implementation for server side Node.js when you need to process async function inside it. asyncArrayIterator iterator pass a callback during iteration which will wait for all async function completion before moving to next iteration. 
+A replacement for for..loop statement and clean up your code from such + passing asynchronous result from the iteration. Usually we pass a statement inside the loop, such as ```if (i == array.length - 1)``` to check the loop has ended. It might be ok for small operation and start to become clunky when the array contains value which inherits lots of prototypes with method. Since for loop is synchronous, it's bad implementation for server side Node.js when you need to process async function inside it. asyncArrayIterator iterator pass a callback during iteration which will wait for all async function completion before moving to next iteration, which literaly you can wrap it inside a closure as well. If your for..loop return undefined, you might want to consider this as an option.
 
 ## installation
 
@@ -87,7 +87,7 @@ var arrData = [{
     last: 'Mouse'
 }];
 
-function iter(array, index, cb) {
+function iterator(array, index, cb) {
     var fullname = getName.fullname.call(array[index])
     cb(fullname)
 }
@@ -96,5 +96,5 @@ function exec(res) {
     console.log(res)
 }
 
-aai(arrData, iter, exec) // [ 'John Ados', 'Sarah Gabon', 'Mickey Mouse' ]
+aai(arrData, iterator, exec) // [ 'John Ados', 'Sarah Gabon', 'Mickey Mouse' ]
 ```

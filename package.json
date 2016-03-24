@@ -1,12 +1,10 @@
 {
   "name": "async-array-iterator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a simple asyncronous iterator which can simplify processing arrays before assigning final arguments",
   "main": "index.js",
   "scripts": {
-    "test1": "node test/test.js",
-    "test2": "node test/test2.js",
-    "test3": "node test/test3.js"
+    "test": "node test/test.js && node test/test2.js && node test/test3.js"
   },
   "repository": {
     "type": "git",

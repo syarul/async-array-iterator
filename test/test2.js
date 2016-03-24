@@ -1,5 +1,7 @@
 var aai = require('../')
 
+console.log('\nrunning test suite 2... \n')
+
 var arrData = [
 	{name: 'john', age: 24},
 	{name: 'sarah', age: 5},

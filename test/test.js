@@ -22,6 +22,3 @@ test('simple array operation', function(t){
 	aai(arrData, iter, exec)
 
 })
-
-
-

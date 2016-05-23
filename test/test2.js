@@ -1,5 +1,6 @@
 var aai = require('../')
 var test = require('tape')
+
 test('object with properties', function(t){
 	t.plan(2)
 	

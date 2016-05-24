@@ -1,24 +1,24 @@
 var aai = require('../')
 var test = require('tape')
 
-test('simple array operation', function(t){
-	t.plan(3)
+test('simple array operation', function(t) {
+  t.plan(3)
 
-	var arrData = [1, 2, 3];
+  var arrData = [1, 2, 3];
 
-	function iter(array, index, callback){
-		
-		var newVal = array[index] * 2
+  function iter(array, index, callback) {
 
-		callback(newVal)
-	}
+    var newVal = array[index] * 2
 
-	function exec(res){
-		t.equal(res[0], 2)
-		t.equal(res[1], 4)
-		t.equal(res[2], 6)
-	}
+    callback(newVal)
+  }
 
-	aai(arrData, iter, exec)
+  function exec(res) {
+    t.equal(res[0], 2)
+    t.equal(res[1], 4)
+    t.equal(res[2], 6)
+  }
+
+  aai(arrData, iter, exec)
 
 })
